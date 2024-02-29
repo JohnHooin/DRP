@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # Apache server
+  web-server:
+    container_name: php_web_server
+    build:
+      context: ./
+      dockerfile: ./php.dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./Web:/var/www/html/
+    networks:
+      - DRP
+    depends_on:
+      - db-mysql
+
+  # Database using MySQL
+  db-mysql:
+    image: mysql:8.3.0
+    container_name: mysql_8_3_0
+    environment:
+      - MYSQL_DATABASE=ct07_db
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_USER=ad_db_ct07
+      - MYSQL_PASSWORD=admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./Data/mysql:/var/lib/mysql
+    networks:
+      - DRP
+
+  # Redis for caching and more
+  redis:
+    image: redis:7.2.4
+    container_name: redis_7_2_4
+    ports:
+      - "6379:6379"
+    networks:
+      - DRP
+
+  # GUI control page
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    container_name: phpmyadmin_container
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_HOST=db-mysql
+      - PMA_PORT=3306
+    networks:
+      - DRP
+
+networks:
+  DRP:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "172.18.0.0/16"
