@@ -1,5 +1,4 @@
-<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php");
-echo $_SERVER['DOCUMENT_ROOT']?>
+<? require "./../../../Public/inc/header.php"?>
 
 <div class="container mb-3">
     <div class="content d-flex justify-content-between align-items-center mt-3">
@@ -65,4 +64,4 @@ echo $_SERVER['DOCUMENT_ROOT']?>
     </div>
 </div>
 
-<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php")?>
+<? require "./../../../Public/inc/footer.php"?>
