@@ -1,8 +1,5 @@
 <? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php")?>
 
-<!-- <div class="loader-container">
-    <div class="loader"></div>
-</div> -->
 <section class="vh-100">
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
