@@ -2,24 +2,24 @@
 <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5" style="background-color: #e1ebfa;">
     <!-- Thông tin nhóm -->
     <div class="text-black mb-3 mb-md-0">
-        <p style="font-weight: 700">NHÓM 3 - CT07N01</p>
+        <p style="font-weight: 700; font-size: 25px">PaPals</p>
         <div class="mb-3 mb-md-0 me-3">
-            <p style="font-weight: 700">Học viện Kỹ thuật mật mã</p>
+            <p style="font-weight: 700">Easy Recipe for your delious meals</p>
         </div>
     </div>
     <!-- Thành viên -->
     <div class=" d-flex flex-column flex-md-row text-center text-md-start justify-content-between text-black">
         <div class="mb-3 mb-md-0 me-3">
-            <p style="font-weight: 700">Nhóm trưởng</p>
-            <p style="font-weight: 600">Trần Quang Diệu</p>
+            <p style="font-weight: 700">Menu</p>
+            <p>Breakfast</p>
         </div>
         <div class="mb-3 mb-md-0 me-3">
-            <p>Võ Thị Bích Tuyền</p>
-            <p>Lê Thanh Yên</p>
+            <p>Lunch</p>
+            <p>Dinner</p>
         </div>
         <div class="mb-3 mb-md-0">
-            <p>Ngô Nguyễn Hạnh Phúc</p>
-            <p>Mạch Tiến Duy</p>
+            <p>Check BMI</p>
+            <p>Check Ingredient</p>
         </div>
 
     </div>
