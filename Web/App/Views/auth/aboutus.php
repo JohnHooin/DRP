@@ -1,11 +1,10 @@
 <? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php")?>
-
 <div class="container mb-3">
     <div class="content d-flex align-items-start mt-3">
         <div class="main-content flex-fill" style="position: sticky; top: 1rem">
             <div class="card" style="width: 40rem;">
                 <a href="#">
-                    <img src="https://i.pinimg.com/564x/8b/33/79/8b337967a987f068e43f705aef7e7397.jpg" class="card-img-top" alt="Picture of meal" style="object-fit: cover; height:30rem;">
+                    <img src="https://i.pinimg.com/564x/8b/33/79/8b337967a987f068e43f705aef7e7397.jpg" class="card-img-top" alt="Picture of meal" style="object-fit: cover; height:30rem; border-radius:50px">
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Giới thiệu trang web</h5>

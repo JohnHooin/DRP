@@ -1,3 +1,4 @@
+
 <!-- Navbar -->
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a2af703eed.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <script src="./../../Public/js/preload.js"></script>
-    <link rel="stylesheet" href="./../../Public/css/preloader_styles.css">
+    <!-- <script src="../../Public/js/custom.js"></script> -->
+    <!-- <link rel="stylesheet" href="$_SERVER['DOCUMENT_ROOT'] . Public/css/preloader_styles.css"> -->
     <title>PaPals-Enjoy your meals</title>
     <style>
         .divider:after,
@@ -92,33 +92,23 @@
   
       <!-- Right elements -->
       <div class="d-flex align-items-center">
-        <!-- Notifications -->
-            <!-- <i class="fas fa-bell me-3" style="height: 30"></i> -->
-            <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
-        <!-- Avatar -->
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/3033/3033143.png"
-              class="rounded-circle me-3"
-              height="30"
-              alt="Black and White Portrait of a Man"
-            />
-            <button>Logout</button>
+        <img id="user"
+          src="https://cdn-icons-png.flaticon.com/128/3033/3033143.png"
+          class="rounded-circle me-3 account hide"
+          height="30"
+          alt="Black and White Portrait of a Man"
+        />
+        <!-- <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div> -->
+            <button id="login" class="login btn btn-primary">Log In</button>
           </a>
-          <!-- <ul
-              id="dropdown-menu"
-              class="show dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdownMenuAvatar"
-          >
-            <li>
-              <a class="dropdown-item" href="#">My profile</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Settings</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Logout</a>
-            </li>
-          </ul> -->
         </div>
       </div>
       <!-- Right elements -->
@@ -127,3 +117,12 @@
   </nav>
   <!-- Navbar -->
 </body>
+
+<style>
+  .hide {
+    display: none;
+  }
+  .show{
+    display: block;
+  }
+</style>
