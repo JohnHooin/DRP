@@ -64,25 +64,6 @@
     </div> -->
 </div>
 
-<script>
-//     document.addEventListener("DOMContentLoaded", function () {
-//     const loggedIn = sessionStorage.getItem("logged-in")
-//     const user = document.getElementById("user")
-//     const login = document.getElementById("login")
-
-//     if (loggedIn) {
-//         login.classList.remove("show")
-//         login.classList.add("hide")
-//         user.classList.add("show")
-//         user.classList.remove("hide")
-//     }
-//     if (!loggedIn) {
-//         login.classList.add("show")
-//         login.classList.remove("hide")
-//         user.classList.remove("show")
-//         user.classList.add("hide")
-//     }
-// })
 window.addEventListener("storage", function () {
     const user = document.getElementById("user")
     const login = document.getElementById("login")

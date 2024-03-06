@@ -37,6 +37,12 @@
             top: 36px;
             right: 0px;
         }
+        .hide {
+          display: none;
+        }
+        .show{
+          display: block;
+  }
         </style>
 </head>
 <body>
@@ -117,12 +123,3 @@
   </nav>
   <!-- Navbar -->
 </body>
-
-<style>
-  .hide {
-    display: none;
-  }
-  .show{
-    display: block;
-  }
-</style>
