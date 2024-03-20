@@ -30,13 +30,13 @@ class UserController extends BaseController
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])){
             $userModel = UserOperation::authenticate($data);
             if($userModel){   
-                $_SESSION['logged_in'] = true;
                 if ($_SESSION['level'] == 4){
                     echo '<script>
                     alert("You are banning!, please try again or contact admin!");
                     window.location.href = "/login";
                     </script>';
                 }
+                $_SESSION['logged_in'] = true;
                 header("Location: /index");
                 exit();
             } else {
