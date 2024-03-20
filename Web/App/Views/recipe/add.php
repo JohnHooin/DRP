@@ -39,7 +39,7 @@
 
   <h2 style="text-align: center; margin-top: 50px;">Add Your Creative Recipe</h2>
 
-  <form id ="recipe-form" action="/recipe/add" method="post" enctype="multipart/form-data" style="width: 50vw; margin: 0 auto; padding: 20px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
+  <form id="recipe-form" action="/recipe/add" method="post" enctype="multipart/form-data" style="width: 50vw; margin: 0 auto; padding: 20px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
     <div class="form-floating mb-3">
       <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of recipe">
       <label for="name">Recipe name</label>
@@ -99,14 +99,18 @@
       <textarea class="form-control" id="description" name="description" aria-label="With textarea"></textarea>
     </div>
 
+    <div id="ingredientComponents"></div>
+
+
+    <div id="ingredientComponents"></div>
+
     <div class="input-group mb-3">
       <label class="input-group-text" for="image">Upload your image</label>
       <input type="file" class="form-control" id="file" name="file">
     </div>
-
-    <div id="ingredientComponents"></div>
     
     <button type="button" class="btn btn-outline-secondary" id="addIngredientBtn" style="padding: 10px; margin-top: 10px; margin-bottom:15px">Add Ingredient</button>
+
 
     <div>
       <button type="submit" class="btn btn-outline-primary btn-lg" style="padding: 10px; margin-top: 20px">Submit</button>

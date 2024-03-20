@@ -48,40 +48,48 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="meal_type_1" class="col-sm-5 col-form-label">Meal Type 1 (Last: <?= $recipe->getMealType1()?>)</label>
+                    <label for="meal_type_1" class="col-sm-5 col-form-label">Meal Type 1 (Last: <?= $recipe->getMealType1() ?>)</label>
                     <div class="col-sm-15">
                         <select class="form-select" id="meal_type_1" name="meal_type_1">
                             <option value="" selected disabled hidden>Select meal recipe for</option>
                             <option value="Breakfast">Breakfast</option>
                             <option value="Lunch">Lunch</option>
                             <option value="Dinner">Dinner</option>
+                            <?php
+                            $categories1 = ['Breakfast', 'Lunch', 'Dinner'];
+                            foreach ($categories1 as $category) {
+                                $selected = ($recipe->getMealType1() == $category) ? 'selected' : '';
+                                echo "<option value=\"$category\" $selected>$category</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="meal_type_2" class="col-sm-5 col-form-label">Meal Type 2 (Last: <?= $recipe->getMealType2()?>)</label>
+                    <label for="meal_type_2" class="col-sm-5 col-form-label">Meal Type 2 (Last: <?= $recipe->getMealType2() ?>)</label>
                     <div class="col-sm-15">
                         <select class="form-select" id="meal_type_2" name="meal_type_2" aria-label="Select meal type">
-                            <option value="" selected disabled hidden>Select meal type</option>
-                            <option value="Appetizer">Appetizer</option>
-                            <option value="Main Dish">Main Dish</option>
-                            <option value="Side Dish">Side Dish</option>
-                            <option value="Dessert">Dessert</option>
+                            <?php
+                            $categories2 = ['Appetizer', 'Main Dish', 'Side Dish', 'Dessert'];
+                            foreach ($categories2 as $category) {
+                                $selected = ($recipe->getMealType2() == $category) ? 'selected' : '';
+                                echo "<option value=\"$category\" $selected>$category</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="meal_type_3" class="col-sm-5 col-form-label">Meal Type 3 (Last: <?= $recipe->getMealType3()?>)</label>
+                    <label for="meal_type_3" class="col-sm-5 col-form-label">Meal Type 3 (Last: <?= $recipe->getMealType3() ?>)</label>
                     <div class="col-sm-15">
                         <select class="form-select" id="meal_type_3" name="meal_type_3" aria-label="Select meal type">
-                            <option value="" selected disabled hidden>Select meal category</option>
-                            <option value="Baked">Baked</option>
-                            <option value="Beverage">Beverage</option>
-                            <option value="Salad and Salad Dressing">Salad and Salad Dressing</option>
-                            <option value="Soup">Soup</option>
-                            <option value="Sauce and Condiment">Sauce and Condiment</option>
-                            <option value="Snack">Snack</option>
-                            <option value="Other">Other</option>
+                            <?php
+                            $categories3 = ['Baked', 'Beverage', 'Salad and Salad Dressing', 'Soup', 'Sauce and Condiment', 'Snack', 'Other'];
+                            foreach ($categories3 as $category) {
+                                $selected = ($recipe->getMealType3() == $category) ? 'selected' : '';
+                                echo "<option value=\"$category\" $selected>$category</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>

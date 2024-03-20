@@ -13,10 +13,15 @@ use App\Controllers\UserController;
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/a2af703eed.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/Public/images/logo.png">
   <link rel="stylesheet" href="/Public/css/costum.css">
   <title>PaPals-Enjoy your meals</title>
   <style>
+    * {
+      font-family: "Roboto", sans-serif;
+    }
     body {
       background-color: #CCD8FF;
       background: linear-gradient(to right, #E2E2E2, #CCD8FF);
@@ -124,12 +129,14 @@ use App\Controllers\UserController;
               <a class="m-2" href="/ingredient">Ingredients</a>
             </li>
           </ul>
+
           <div class=" d-flex justify-content-center align-items-center input-group me-3" style="width:300px">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+            <input type="text" class="form-control" id="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-primary" type="button">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
+
         </div>
 
         <?php

@@ -1,15 +1,19 @@
 <?
 
 namespace App\Operations;
+
 use App\Controllers\Dialog;
 
-class IngredientCreateOperation extends DatabaseRelatedOperation implements I_CreateAndUpdateOperation {
-  public function __construct() {
+class IngredientCreateOperation extends DatabaseRelatedOperation implements I_CreateAndUpdateOperation
+{
+  public function __construct()
+  {
     parent::__construct();
   }
 
 
-  static public function notify(string $message) : void {
+  static public function notify(string $message): void
+  {
     Dialog::show($message);
   }
 
@@ -21,7 +25,8 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
    * @return void
    * @throws \InvalidArgumentException If the data is invalid.
    */
-  static public function validateData(array $data) : void {
+  static public function validateData(array $data): void
+  {
     /**
      * Validate the data with specific rules
      * name: required, only letters and numbers
@@ -30,15 +35,17 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
      * calcium, calories, carbohydrate, cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat,
      * saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c: optional, must be a number
      */
-  
-    if($data == null) 
+
+    if ($data == null)
       throw new \InvalidArgumentException(parent::MSG_DATA_ERROR . __METHOD__ . '. ');
     $validCategories = array('EMMP', 'FAO', 'FRU', 'GNBK', 'HRBS', 'MSF', 'OTHR', 'PRP', 'VEGI');
     $validMeasurements = array('tsp', 'cup', 'tbsp', 'g', 'lb', 'can', 'oz', 'unit');
 
     $requiredFields = ['name', 'category', 'measurement_description'];
-    $numericFields = ['calcium', 'calories', 'carbohydrate', 'cholesterol', 'fiber', 'iron', 'fat', 
-      'monounsaturated_fat', 'polyunsaturated_fat', 'saturated_fat', 'potassium', 'protein', 'sodium', 'sugar', 'vitamin_a', 'vitamin_c'];
+    $numericFields = [
+      'calcium', 'calories', 'carbohydrate', 'cholesterol', 'fiber', 'iron', 'fat',
+      'monounsaturated_fat', 'polyunsaturated_fat', 'saturated_fat', 'potassium', 'protein', 'sodium', 'sugar', 'vitamin_a', 'vitamin_c'
+    ];
 
     foreach ($requiredFields as $field) {
       if (empty($data[$field])) {
@@ -52,11 +59,13 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
       }
     }
 
-    if (!preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name']) ||
-        !in_array($data['category'], $validCategories) ||
-        !in_array($data['measurement_description'], $validMeasurements)) {
+    if (
+      !preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name']) ||
+      !in_array($data['category'], $validCategories) ||
+      !in_array($data['measurement_description'], $validMeasurements)
+    ) {
       throw new \InvalidArgumentException(parent::MSG_DATA_ERROR . __METHOD__ . '. ');
-    } 
+    }
   }
 
 
@@ -66,7 +75,8 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
    * @param array $data The data to be saved
    * @throws \PDOException If the data cannot be saved
    */
-  static public function saveToDatabase(array $data) : void{
+  static public function saveToDatabase(array $data): void
+  {
     $model = new static();
     $conn = $model->DB_CONNECTION;
     if ($conn == false) {
@@ -74,20 +84,20 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
     }
 
 
-    $sql = "INSERT INTO ingredients (isActive, name, category, calcium, calories, carbohydrate, 
-    cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat, 
-    saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c) 
-    VALUES (1, :name, :category, :calcium, :calories, :carbohydrate, :cholesterol, 
-    :fiber, :iron, :fat, :monounsaturated_fat, :polyunsaturated_fat, :saturated_fat, 
-    :potassium, :protein, :sodium, :sugar, :vitamin_a, :vitamin_c)";
+    $sql = "INSERT INTO ingredients (`name`, `category`, `measurement_description`, `calcium`, `calories`, `carbohydrate`, 
+              `cholesterol`, `fiber`, `iron`, `fat`, `monounsaturated_fat`, `polyunsaturated_fat`, 
+              `saturated_fat`, `potassium`, `protein`, `sodium`, `sugar`, `vitamin_a`, `vitamin_c`) 
+            VALUES (:name, :category, :measurement_description, :calcium, :calories, :carbohydrate, 
+              :cholesterol, :fiber, :iron, :fat, :monounsaturated_fat, :polyunsaturated_fat, 
+              :saturated_fat, :potassium, :protein, :sodium, :sugar, :vitamin_a, :vitamin_c)";
 
     /** 
      * Execute the query with the given data
      */
-    self::query($sql, $conn, \PDO::FETCH_ASSOC, [ 
+    self::query($sql, $conn, \PDO::FETCH_ASSOC, [
       'name' => $data['name'],
       'category' => $data['category'],
-      'measurement_description' => $data['measurement_description'], 
+      'measurement_description' => $data['measurement_description'],
       'calcium' => $data['calcium'] ?? 0,
       'calories' => $data['calories'] ?? 0,
       'carbohydrate' => $data['carbohydrate'] ?? 0,
@@ -114,7 +124,8 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
    * @param array $data The data to be executed
    * @return bool True if the operation is successful, false otherwise
    */
-  static public function execute(array $data) : bool{
+  static public function execute(array $data): bool
+  {
     /**
      * Validate the data before saving to the database
      */

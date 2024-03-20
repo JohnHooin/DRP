@@ -34,11 +34,6 @@ class RecipeController extends BaseController
         $recipe = RecipeReadOperation::getSingleObjectById($id);
         $this->loadView('recipe.recipe_view', $recipe);
     }
-    public function search(){
-        $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_GET['id']);
-        $this->loadView('recipe.recipe', $recipes);
-
-    }
 
     public function listByCategory()
     {
@@ -54,7 +49,6 @@ class RecipeController extends BaseController
     public function add() {
         $data = $_POST;
 
-
         $ingredientComponents = [];
         for ($index = 0; $index < count($data['ingredient_id']); $index++) {
             $component = [
@@ -64,51 +58,30 @@ class RecipeController extends BaseController
             ];
             $ingredientComponents[] = $component;
         }
+        
         $data['ingredientComponents'] = $ingredientComponents;
-        // release the ingredient_id, unit, and quantity from the data
         unset($data['ingredient_id']);
         unset($data['unit']);
         unset($data['quantity']);
-
-
         $data['image_url'] = UploadImageOperation::process();
         if ($data['image_url'] == null) {
-            die();
+            echo "<script>alert('Failed to upload image.');</script>";
         }
-        if (RecipeCreateOperation::execute($data))
-            header("Location: /recipe/add");
+        
+        if(RecipeCreateOperation::execute($data)){
+            header("Location: /recipe");
+        }
+        else header("Location: /recipe/add");
+
     }
 
-    public function editUI()
-    {
-        $id = $_GET['id'];
-        $recipe = RecipeReadOperation::getSingleObjectById($id);
-        $this->loadView('recipe.edit', $recipe);
-    }
-    public function edit()
-    {
-        $data = $_POST;
-        RecipeUpdateOperation::execute($data);
-        header("Location: /recipe/edit?id=" . $data['id']);
-    }
-    public function deleteUI()
-    {
-        $id = $_GET['id'];
-        $recipe = RecipeReadOperation::getSingleObjectById($id);
-        $this->loadView('recipe.delete', $recipe);
-    }
-
-    public function delete()
-    {
-        $id = $_GET['id'];
-        RecipeDeleteOperation::deleteById($id);
-        header("Location: /recipe");
-    }
-    public function find() {    
+    public function find() {
+        RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_GET['search']);
         $this->loadView('recipe.find');
     }
 
-    public function findResult(){
+    public function findResult()
+    {
         $id = $_GET['id'] ?? null;
 
         $recipe = RecipeReadOperation::getSingleObjectById($id);

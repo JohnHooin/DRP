@@ -51,7 +51,7 @@ class Database
             $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             return $connection;
         } catch (\PDOException $e) {
-            echo $e->getMessage() . " <br> ";
+            handlePDOException($e);
             return false;
         }
     }

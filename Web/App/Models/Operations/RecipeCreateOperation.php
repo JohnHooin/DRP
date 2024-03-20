@@ -133,12 +133,11 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       self::notify("Add recipe failed caused by: " . $PDOException->getMessage());
-      return false;
     } catch (\Throwable $throwable) {
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
       self::notify("Add recipe failed caused by: " . $throwable->getMessage());
-      return false;
     }
+    self::notify("Add recipe successfully! ");
     return true;
   }
 }

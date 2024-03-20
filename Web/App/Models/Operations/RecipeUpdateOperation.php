@@ -117,28 +117,26 @@ class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_Create
    * @param array $data The data to update the recipe.
    * @return bool Returns true if the recipe update was successful, false otherwise.
    */
-  static public function execute($data): bool
-  {
+  static public function execute($data): bool {
     try {
       self::validateData($data);
     } catch (\InvalidArgumentException $InvalidArgumentException) {
       handleException($InvalidArgumentException);
       self::notify("Update recipe failed casued by: " . htmlspecialchars($InvalidArgumentException->getMessage()));
-      return false;
+      header("Location: /manager/recipe/update?id=" . $data['id']);
     }
     try {
       self::saveToDatabase($data);
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       self::notify("Update recipe failed casued by: " . htmlspecialchars($PDOException->getMessage()));
-      return false;
+      header("Location: /manager/recipe/update?id=" . $data['id']);
     }
 
     self::notify("Update recipe successfully! ");
     return true;
   }
 
-  
   public static function setRecipeActive($data){
     $models = new static;
     $conn = $models->DB_CONNECTION;
