@@ -35,6 +35,8 @@ class UserController extends BaseController
                     alert("You are banning!, please try again or contact admin!");
                     window.location.href = "/login";
                     </script>';
+                    session_destroy();
+                    unset($_SESSION);
                 }
                 $_SESSION['logged_in'] = true;
                 header("Location: /index");
