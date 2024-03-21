@@ -22,9 +22,17 @@ use App\Controllers\UserController;
     * {
       font-family: "Roboto", sans-serif;
     }
+
+    html{
+      height: 100%;
+    }
+
     body {
       background-color: #CCD8FF;
       background: linear-gradient(to right, #E2E2E2, #CCD8FF);
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     input[type="number"] {
@@ -49,10 +57,15 @@ use App\Controllers\UserController;
     }
 
     .page .footer {
+      margin-top: auto;
       position: fixed;
       bottom: 0;
       width: 100%;
       z-index: 1000;
+    }
+
+    footer{
+      margin-top: auto;
     }
 
     .divider:after,

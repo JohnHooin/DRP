@@ -1,4 +1,4 @@
-    <div class="footer">
+    <footer>
         <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-0 px-4 px-xl-5" style="background-color: #e1ebfa;">
             <div class="mb-md-0">
                 <a href="/homepage">
@@ -43,7 +43,7 @@
                 <a href="mailto:drpkma@dailyrecipes.tech" style="font-weight: 700;">drpkma@dailyrecipes.tech</a>
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 </html>
 <style>
